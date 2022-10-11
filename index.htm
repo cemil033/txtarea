@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <title>Document</title>
+    <style>
+        #txt{
+            width: 80%;
+            height: 200px;            
+        }
+        #bold{
+            margin: 20px 10px 10px 50px;
+            width: 50px;
+        }
+        .Bold{
+            font-weight: 700;
+        }
+        .Italic{
+            font-style: italic;
+        }
+        .Under{
+            text-decoration: underline;
+        }
+        #italic{
+            margin: 20px 10px 10px 50px;
+            width: 50px;
+        }
+        #under{
+            margin: 20px 10px 10px 50px;
+            width: 50px;
+        }
+        #colors{
+            margin: 20px 10px 10px 50px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <button id="bold"><b>B</b></button>
+            <button id="italic"><i>i</i></button>
+            <button id="under"><u>U</u></button>
+            <select id="colors" onchange="changeColor()">
+                <option value="1">Red</option>
+                <option value="2">Blue</option>
+                <option value="3" >Green</option>
+                <option value="4">Yellow</option>
+                <option value="5">Orange</option>                
+                <option value="6">Black</option>
+              </select>
+              <select id="fonts" onchange="changeFont()">
+                <option value="1">8</option>
+                <option value="2">12</option>
+                <option value="3" >16</option>
+                <option value="4">24</option>
+                <option value="5">32</option>
+                <option value="6">64</option>
+              </select>
+        </div>
+        <div id="div3">
+            <textarea id="txt" type="text"></textarea>
+        </div>
+    </div>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+           
+        function changeColor(){
+            let eID = document.getElementById("colors"); 
+            let colortxt = eID.options[eID.selectedIndex].text;
+            $('#txt').css('color',`${colortxt}`);
+        }
+        function changeFont(){
+            let eID = document.getElementById("fonts");
+            let fonttxt = eID.options[eID.selectedIndex].text;
+            $('#txt').css('font-size',`${fonttxt}px`);
+        }
+        $('#bold').click(()=>{
+            $('#txt').toggleClass('Bold')
+        })
+        $('#italic').click(()=>{
+            $('#txt').toggleClass('Italic')
+        })
+        $('#under').click(()=>{
+            $('#txt').toggleClass('Under')
+            
+        })
+        </script>    
+    </body>
+</html>
